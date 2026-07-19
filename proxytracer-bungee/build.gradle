@@ -1,0 +1,27 @@
+plugins {
+    id "java"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation project(":proxytracer-common")
+    compileOnly "net.md-5:bungeecord-api:1.20-R0.2-SNAPSHOT"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 17
+}
+
+tasks.jar {
+    archiveFileName = "proxytracer-bungee.jar"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

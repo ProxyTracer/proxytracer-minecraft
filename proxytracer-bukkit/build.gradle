@@ -1,0 +1,27 @@
+plugins {
+    id "java"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation project(":proxytracer-common")
+    compileOnly "org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 17
+}
+
+tasks.jar {
+    archiveFileName = "proxytracer-bukkit.jar"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

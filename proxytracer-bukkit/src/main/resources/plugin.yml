@@ -1,0 +1,22 @@
+name: ProxyTracer
+version: 1.2.0
+main: com.proxytracer.bukkit.ProxyTracerPlugin
+api-version: "1.13"
+author: ProxyTracer
+website: https://proxytracer.com
+description: Checks joining players against the ProxyTracer proxy/VPN detection API.
+commands:
+  proxytracer:
+    description: ProxyTracer administration commands.
+    usage: /proxytracer <reload|set|check|cache|status|whitelist>
+    permission: proxytracer.admin
+permissions:
+  proxytracer.admin:
+    description: Allows use of ProxyTracer administration commands.
+    default: op
+  proxytracer.bypass:
+    description: Bypass ProxyTracer login checks where supported.
+    default: false
+  proxytracer.notify:
+    description: Receive ProxyTracer proxy detection notifications.
+    default: op
