@@ -1,0 +1,10 @@
+{
+  "id": "proxytracer",
+  "name": "ProxyTracer",
+  "version": "1.3.0",
+  "description": "ProxyTracer proxy/VPN protection for Velocity",
+  "authors": ["ProxyTracer"],
+  "url": "https://proxytracer.com",
+  "dependencies": [],
+  "main": "com.proxytracer.velocity.ProxyTracerVelocityPlugin"
+}

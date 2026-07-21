@@ -1,0 +1,5 @@
+name: ProxyTracer
+main: com.proxytracer.bungee.ProxyTracerBungeePlugin
+version: 1.3.0
+author: ProxyTracer
+description: ProxyTracer proxy/VPN protection for BungeeCord/Waterfall

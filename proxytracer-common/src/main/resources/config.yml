@@ -1,0 +1,51 @@
+api:
+  base-url: "https://api.proxytracer.com/v1"
+  key: "proxy_your_key_here"
+  timeout-ms: 2000
+  on-error: "allow"
+
+mode: "block"
+
+messages:
+  url: "https://proxytracer.com"
+  # Shown when a player is blocked. Use & for colors.
+  # Placeholders: {ip}, {player}, {url}
+  kick: |-
+    &c&lProxyTracer
+    &7https://proxytracer.com
+
+    &cYour connection was blocked.
+    &7Detected as a &fproxy/VPN&7.
+
+    &7IP: &f{ip}
+    &7Player: &f{player}
+
+    &8Protection by ProxyTracer
+    &8proxytracer.com
+
+cache:
+  enabled: true
+  ttl-minutes: 1440
+  max-entries: 10000
+
+# Seed values also loaded into whitelist.yml on first use.
+# Prefer /proxytracer whitelist commands for runtime changes.
+whitelist:
+  names: []
+  ips: []
+
+permissions:
+  bypass: "proxytracer.bypass"
+  admin: "proxytracer.admin"
+  notify: "proxytracer.notify"
+
+discord:
+  enabled: false
+  webhook-url: ""
+  notify-allowed: false
+  notify-blocked: true
+  notify-errors: true
+
+debug:
+  enabled: false
+  override-login-ip: ""
